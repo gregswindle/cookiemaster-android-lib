@@ -1,8 +1,16 @@
+apply plugin: "org.sonarqube"
 apply plugin: 'jacoco'
-// apply plugin: 'com.github.kt3k.coveralls'
 
 jacoco {
     toolVersion = "0.7.5.201505241946"
+}
+
+sonarqube {
+    androidVariant 'fullDebug'
+    properties {
+        property "sonar.projectName", "cookiemaster-android-lib"
+        property "sonar.projectKey", "org.sonarqube:java-gradle-simple"
+    }
 }
 
 project.afterEvaluate {
