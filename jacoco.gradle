@@ -9,7 +9,7 @@ sonarqube {
     androidVariant 'fullDebug'
     properties {
         property "sonar.projectName", "cookiemaster-android-lib"
-        property "sonar.projectKey", "org.sonarqube:java-gradle-simple"
+        property "sonar.projectKey", "gregswindle:cookiemaster-android-lib"
     }
 }
 
