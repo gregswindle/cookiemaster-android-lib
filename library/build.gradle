@@ -26,7 +26,10 @@ android {
     }
     dexOptions {
         // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
-        preDexLibraries = preDexEnabled && !travisBuild
+        // preDexLibraries = preDexEnabled && !travisBuild
+        preDexLibraries = false
+        jumboMode = false
+        javaMaxHeapSize "2048M"
     }
     packagingOptions {
         exclude 'META-INF/LICENSE'
