@@ -31,9 +31,9 @@ after_success:
   - ./gradlew jacocoTestReport
   - mkdir -p ./build/reports/jacoco/test/
   - cp -f ./library/build/reports/jacoco/jacocoTestDebugUnitTestReport/jacocoTestDebugUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
-  - coveralls
+  - ./gradlew coveralls
   - cp -f ./library/build/reports/jacoco/jacocoTestReleaseUnitTestReport/jacocoTestReleaseUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
-  - coveralls
+  - ./gradlew coveralls
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
