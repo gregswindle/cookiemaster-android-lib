@@ -1,7 +1,6 @@
 language: android
 jdk:
   - oraclejdk8
-  - oraclejdk7
 
 sudo: required
 android:
@@ -29,7 +28,7 @@ script:
 after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
 
 after_success:
-  - ./gradlew testDebugUnitTestCoverage coveralls
+  - ./gradlew jacocoTestReport coveralls
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

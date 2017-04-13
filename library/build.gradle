@@ -41,6 +41,7 @@ android {
     lintOptions {
         abortOnError false
     }
+
 }
 
 group = 'com.verizon.api'
@@ -70,4 +71,9 @@ dependencies {
     androidTestCompile 'org.mockito:mockito-android:2.7.22'
 //    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 //    androidTestCompile 'org.robolectric:robolectric:3.3.2'
+}
+
+
+coveralls {
+
 }
