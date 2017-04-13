@@ -1,0 +1,27 @@
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+
+sudo: false
+env:
+  - TERM=dumb
+
+before_install:
+  - chmod +x gradlew
+
+install:
+  - ./gradlew assemble
+
+script:
+  - ./gradlew check
+
+after_success:
+  - ./gradlew testDebugUnitTestCoverage coveralls
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
