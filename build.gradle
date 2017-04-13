@@ -26,6 +26,13 @@ allprojects {
     }
 }
 
+def coverageSourceDirs = [
+        "$projectDir/build/reports/jacoco/jacocoTestDebugUnitTestReport/jacocoTestDebugUnitTestReport.xml",
+        "$projectDir/build/reports/jacoco/jacocoTestReleaseUnitTestReport/jacocoTestReleaseUnitTestReport.xml"
+]
+
+project.extensions.coveralls.sourceDirs += coverageSourceDirs
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

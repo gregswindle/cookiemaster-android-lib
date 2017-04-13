@@ -14,9 +14,10 @@ sonarqube {
     }
 }
 
-def coverageSourceDirs = [
-        "$projectDir/src/main/java",
-]
+
+//coveralls {
+//
+//}
 
 jacocoAndroidUnitTestReport {
     csv.enabled false
