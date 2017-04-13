@@ -17,6 +17,8 @@ buildscript {
     }
 }
 
+apply plugin: 'com.github.kt3k.coveralls'
+
 allprojects {
     repositories {
         jcenter()
