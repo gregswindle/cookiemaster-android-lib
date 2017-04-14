@@ -16,11 +16,9 @@ sonarqube {
         property "sonar.sources", "library/src/main/java"
         property "sonar.exclusions", "library/build/**,**/*.png"
 
-//        property "sonar.import_unknown_files", true
-
-        property "sonar.android.lint.report", "library/build/reports/lint-results.xml"
-        property "sonar.tests", "library/test-results/**"
-        property "sonar.jacoco.reportPath", "library/build/jacoco/*.exec"
+        property "sonar.android.lint.report", "build/reports/lint-results.xml"
+        property "sonar.junit.reportsPath",   "build/test-results/**"
+        property "sonar.jacoco.reportPath",   "build/jacoco/*.exec"
     }
 }
 
