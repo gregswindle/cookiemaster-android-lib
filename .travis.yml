@@ -25,14 +25,16 @@ script:
   - ./gradlew projectReport
   - ./gradlew test
   # Coverage
-  - pwd
   - mkdir -p ./build/reports/jacoco/test/
   - ./gradlew jacocoTestReport
   - cp -rf ./library/build/reports/jacoco/jacocoTestDebugUnitTestReport/ ./build/reports/jacoco/test/
-  - mv ./build/reports/jacoco/test/jacocoTestDebugUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
-  - ./gradlew coveralls
+  # - mv ./build/reports/jacoco/test/jacocoTestDebugUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
+  - ls -la ./library/build/reports/jacoco
+  # - ./gradlew coveralls
+  - ./gradlew build
+  - ./gradlew sonarqube
 
-after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
+after_failure: "cat $TRAVIS_BUILD_DIR/build/outputs/lint-results-debug.xml"
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
