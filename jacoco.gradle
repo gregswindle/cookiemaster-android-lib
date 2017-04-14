@@ -9,14 +9,14 @@ jacoco {
 sonarqube {
     properties {
         property "sonar.host.url", "https://sonarqube.com"
-        property "sonar.projectName", "cookmaster-android-lib"
+        property "sonar.projectName", "cookiemaster-android-lib"
         property "sonar.projectKey", "gregswindle-cookiemaster-android-lib"
 
         property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.sources","library/src/main/java"
+        property "sonar.sources", "library/src/main/java"
         property "sonar.exclusions", "library/build/**,**/*.png"
 
-        property "sonar.import_unknown_files", true
+//        property "sonar.import_unknown_files", true
 
         property "sonar.android.lint.report", "library/build/reports/lint-results.xml"
         property "sonar.tests", "library/test-results/**"
