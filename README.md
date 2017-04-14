@@ -2,11 +2,7 @@
 
 > Native Android extraction from `com.cordova.plugins.cookiemaster.CookieMaster` for reuse in native Android as well as Cordova.
 
-[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT)
-[![Build Status](http://img.shields.io/travis/gregswindle/cookiemaster-android-lib.svg?style=flat&branch=master)](https://travis-ci.org/gregswindle/cookiemaster-android-lib)
-[![Coverage Status](https://img.shields.io/coveralls/gregswindle/cookiemaster-android-lib.svg?style=flat)](https://coveralls.io/r/gregswindle/cookiemaster-android-lib?branch=master)
-[![Greenkeeper badge](https://badges.greenkeeper.io/gregswindle/cookiemaster-android-lib.svg)](https://greenkeeper.io/)
-
+[![Build Status](http://img.shields.io/travis/gregswindle/cookiemaster-android-lib.svg?style=flat&branch=master)](https://travis-ci.org/gregswindle/cookiemaster-android-lib) [![Quality Gate](https://sonarqube.com/api/badges/gate?key=gregswindle-cookiemaster-android-libc%3Adevelop&template=FLAT)](https://sonarqube.com/dashboard/index/gregswindle-cookiemaster-android-libc%3Adevelop) [![Coverage Status](https://sonarqube.com/api/badges/measure?key=gregswindle-cookiemaster-android-libc%3Adevelop&metric=coverage&template=FLAT)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib) [![Dependency Status](https://gemnasium.com/badges/github.com/gregswindle/cookiemaster-android-lib.svg?style=flat)](https://gemnasium.com/github.com/gregswindle/cookiemaster-android-lib) [![Technical Debt](https://sonarqube.com/api/badges/measure?key=gregswindle-cookiemaster-android-libc%3Adevelop&metric=sqale_debt_ratio&template=FLAT)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib)
 ---
 <!-- TOC depthFrom:2 depthTo:4 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -21,10 +17,10 @@
 	- [2.2. Gradle](#22-gradle)
 - [3. Snapshots](#3-snapshots)
 - [4. Recommended prerequisites](#4-recommended-prerequisites)
-	- [4.1. [`Homebrew`](https://brew.sh/)](#41-homebrewhttpsbrewsh)
-	- [4.2. [`jenv`](http://www.jenv.be/)](#42-jenvhttpwwwjenvbe)
+	- [4.1. `Homebrew`](#41-homebrewhttpsbrewsh)
+	- [4.2. `jenv`](#42-jenvhttpwwwjenvbe)
 	- [4.3. `java`](#43-java)
-	- [4.4. [`gradle`](https://gradle.org/install#with-homebrew)](#44-gradlehttpsgradleorginstallwith-homebrew)
+	- [4.4. `gradle`](#44-gradlehttpsgradleorginstallwith-homebrew)
 - [5. Reports :chart_with_upwards_trend:](#5-reports-chartwithupwardstrend)
 	- [5.1. Code quality and test reports](#51-code-quality-and-test-reports)
 	- [5.2. Project dependency updates](#52-project-dependency-updates)
@@ -32,8 +28,6 @@
 	- [5.4. Dependency reports for Web browsers](#54-dependency-reports-for-web-browsers)
 - [6. Dependency management](#6-dependency-management)
 - [7. Deployment](#7-deployment)
-- [8. [Building Android Projects with Gradle](https://spring.io/guides/gs/gradle-android/)](#8-building-android-projects-with-gradlehttpsspringioguidesgsgradle-android)
-
 <!-- /TOC -->
 
 ## 1. Features
@@ -80,7 +74,7 @@ CookieMaster.clear();
 Releases ~~are~~ _will be_ published to [bintray jcenter](https://bintray.com/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib/) and
 [maven central](https://maven-badges.herokuapp.com/maven-central/com.verizon.api/cookiemaster-android-lib).
 
-[![JCenter](https://img.shields.io/bintray/v/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib.svg?label=jcenter)](https://bintray.com/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib/_latestVersion)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT)  [![JCenter](https://img.shields.io/bintray/v/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib.svg?label=jcenter)](https://bintray.com/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/com.verizon.api/cookiemaster-android-lib.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.verizon.api/cookiemaster-android-lib)
 
 
@@ -215,12 +209,6 @@ $ ./gradlew install
 ```
 $ ./gradlew release
 ```
-
-## 8. [Building Android Projects with Gradle](https://spring.io/guides/gs/gradle-android/)
-
-> ### :bookmark: Tutorial
->
-> Spring has a good tutorial called [_Building Android Projects with Gradle_](https://spring.io/guides/gs/gradle-android/).
 
 ---
 [![java lib generator](http://img.shields.io/badge/Powered%20by-%20Java%20lib%20generator-green.svg?style=flat-square)](https://github.com/xvik/generator-lib-java)

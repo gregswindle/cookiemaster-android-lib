@@ -1,27 +1,52 @@
-language: java
+language: android
 jdk:
   - oraclejdk8
-  - oraclejdk7
 
-sudo: false
-env:
-  - TERM=dumb
+sudo: required
+install: true
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-25.0.2
+    - android-25
+    - extra-android-m2repository
+    - sys-img-armeabi-v7a-android-23
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'intel-android-extra-license.+'
+
+addons:
+  sonarqube:
+    organization: "${SONAR_ORGANIZATION}"
+    token:
+      secure: "${SONAR_TOKEN}"
+    branches:
+      - master
+      - develop
 
 before_install:
+  - unset $ANDROID_NDK_HOME
   - chmod +x gradlew
 
-install:
-  - ./gradlew assemble
-
 script:
-  - ./gradlew check
+  - ./gradlew check projectReport
+  - cat library/build/reports/project/dependencies.txt && cat library/build/reports/project/properties.txt && cat library/build/reports/project/tasks.txt
+  - ./gradlew build test sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=${SONAR_ORGANIZATION} -Dsonar.login=${SONAR_TOKEN}
 
-after_success:
-  - ./gradlew testDebugUnitTestCoverage coveralls
+after_failure: "cat $TRAVIS_BUILD_DIR/build/outputs/lint-results-debug.xml"
 
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+
 cache:
   directories:
+    - $HOME/.m2/repository
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+    - $HOME/.sonar/cache
+    - $HOME/.gradle
+    - .gradle
