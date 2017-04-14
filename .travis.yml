@@ -25,7 +25,6 @@ addons:
     branches:
       - master
       - develop
-      - feat/#1/automate-qa-gateway
 
 before_install:
   - unset $ANDROID_NDK_HOME
