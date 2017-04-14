@@ -10,7 +10,9 @@ sonarqube {
     properties {
         property "sonar.host.url",    "https://sonarqube.com"
         property "sonar.projectName", "cookiemaster-android-lib"
+        property "sonar.projectDescription", "Native Android .aar extraction from com.cordova.plugins.cookiemaster.CookieMaster for reuse in native Android as well as Cordova using the Android Studio Library directory structure."
         property "sonar.projectKey",  "gregswindle-cookiemaster-android-lib"
+        property "sonar.projectVersion",  "0.1.0"
 
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.sources",        "src/main/java"
