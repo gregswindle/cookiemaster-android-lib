@@ -73,7 +73,3 @@ dependencies {
 //    androidTestCompile 'org.robolectric:robolectric:3.3.2'
 }
 
-
-coveralls {
-
-}
