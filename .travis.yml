@@ -25,6 +25,7 @@ script:
   - ./gradlew projectReport
   - ./gradlew test
   # Coverage
+  - pwd
   - mkdir -p ./build/reports/jacoco/test/
   - ./gradlew jacocoTestReport
   - cp -rf ./library/build/reports/jacoco/jacocoTestDebugUnitTestReport/ ./build/reports/jacoco/test/
