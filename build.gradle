@@ -11,11 +11,14 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.1'
         classpath 'net.sf.proguard:proguard-gradle:5.3.3'
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.1'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+apply plugin: 'com.github.kt3k.coveralls'
 
 allprojects {
     repositories {
@@ -23,6 +26,20 @@ allprojects {
     }
 }
 
+def coverageSourceDirs = [
+        "$projectDir/build/reports/jacoco/jacocoTestDebugUnitTestReport/jacocoTestDebugUnitTestReport.xml",
+        "$projectDir/build/reports/jacoco/jacocoTestReleaseUnitTestReport/jacocoTestReleaseUnitTestReport.xml"
+]
+
+project.extensions.coveralls.sourceDirs += coverageSourceDirs
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    travisBuild = System.getenv("TRAVIS") == "true"
+    // allows for -Dpre-dex=false to be set
+    preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+
 }
