@@ -27,15 +27,15 @@ script:
   # Coverage
   - mkdir -p ./build/reports/jacoco/test/
   - ./gradlew jacocoTestReport
-  - cp -f ./library/build/reports/jacoco/jacocoTestDebugUnitTestReport/jacocoTestDebugUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
-  - ls -la ./build/reports/jacoco/test/
+  - cp -rf ./library/build/reports/jacoco/jacocoTestDebugUnitTestReport/ ./build/reports/jacoco/test/
+  - mv ./build/reports/jacoco/test/jacocoTestDebugUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
   - ./gradlew coveralls
 
 after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
     - $HOME/.gradle/caches/
