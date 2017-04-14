@@ -34,7 +34,7 @@ script:
   - ./gradlew check projectReport
   - cat library/build/reports/project/dependencies.txt && cat library/build/reports/project/properties.txt && cat library/build/reports/project/tasks.txt
   - ./gradlew build test sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=${SONAR_ORGANIZATION} -Dsonar.login=${SONAR_TOKEN}
-
+  - ./gradlew connectedCheck
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
