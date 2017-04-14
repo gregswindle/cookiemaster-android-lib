@@ -3,6 +3,7 @@ jdk:
   - oraclejdk8
 
 sudo: required
+install: true
 android:
   components:
     - platform-tools
@@ -15,6 +16,12 @@ android:
     - 'android-sdk-preview-license-.+'
     - 'android-sdk-license-.+'
     - 'intel-android-extra-license.+'
+
+addons:
+  sonarqube:
+    organization: ${SONAR_ORGANIZATION}
+    token:
+      secure: ${SONAR_TOKEN}
 
 before_install:
   - unset $ANDROID_NDK_HOME
@@ -39,8 +46,13 @@ after_failure: "cat $TRAVIS_BUILD_DIR/build/outputs/lint-results-debug.xml"
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+
 cache:
   directories:
+    - $HOME/.m2/repository
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
+    - $HOME/.sonar/cache
+    - $HOME/.gradle
+    - .gradle
