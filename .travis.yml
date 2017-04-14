@@ -19,9 +19,13 @@ android:
 
 addons:
   sonarqube:
-    organization: ${SONAR_ORGANIZATION}
+    organization: "${SONAR_ORGANIZATION}"
     token:
-      secure: ${SONAR_TOKEN}
+      secure: "${SONAR_TOKEN}"
+    branches:
+      - master
+      - develop
+      - feat/#1/automate-qa-gateway
 
 before_install:
   - unset $ANDROID_NDK_HOME
