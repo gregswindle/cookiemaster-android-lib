@@ -4,7 +4,7 @@
 
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT)
 [![Build Status](http://img.shields.io/travis/gregswindle/cookiemaster-android-lib.svg?style=flat&branch=master)](https://travis-ci.org/gregswindle/cookiemaster-android-lib)
-[![Coverage Status](https://img.shields.io/coveralls/gregswindle/cookiemaster-android-lib.svg?style=flat)](https://coveralls.io/r/gregswindle/cookiemaster-android-lib?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/gregswindle/cookiemaster-android-lib/badge.svg?style=flat)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib)
 [![Greenkeeper badge](https://badges.greenkeeper.io/gregswindle/cookiemaster-android-lib.svg)](https://greenkeeper.io/)
 
 ---
