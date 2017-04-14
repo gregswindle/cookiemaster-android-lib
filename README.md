@@ -2,7 +2,7 @@
 
 > Native Android extraction from `com.cordova.plugins.cookiemaster.CookieMaster` for reuse in native Android as well as Cordova.
 
-[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT) [![Build Status](http://img.shields.io/travis/gregswindle/cookiemaster-android-lib.svg?style=flat&branch=master)](https://travis-ci.org/gregswindle/cookiemaster-android-lib) [![Quality Gate](https://sonarqube.com/api/badges/gate?key=gregswindle-cookiemaster-android-libc%3Adevelop&template=FLAT)](https://sonarqube.com/dashboard/index/gregswindle-cookiemaster-android-libc%3Adevelop) [![Coverage Status](https://sonarqube.com/api/badges/measure?key=gregswindle-cookiemaster-android-libc%3Adevelop&metric=coverage&template=FLAT)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib) [![Technical Debt](https://sonarqube.com/api/badges/measure?key=gregswindle-cookiemaster-android-libc%3Adevelop&metric=sqale_debt_ratio&template=FLAT)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib)
+[![Build Status](http://img.shields.io/travis/gregswindle/cookiemaster-android-lib.svg?style=flat&branch=master)](https://travis-ci.org/gregswindle/cookiemaster-android-lib) [![Quality Gate](https://sonarqube.com/api/badges/gate?key=gregswindle-cookiemaster-android-libc%3Adevelop&template=FLAT)](https://sonarqube.com/dashboard/index/gregswindle-cookiemaster-android-libc%3Adevelop) [![Coverage Status](https://sonarqube.com/api/badges/measure?key=gregswindle-cookiemaster-android-libc%3Adevelop&metric=coverage&template=FLAT)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib) [![Dependency Status](https://gemnasium.com/badges/github.com/gregswindle/cookiemaster-android-lib.svg?style=flat)](https://gemnasium.com/github.com/gregswindle/cookiemaster-android-lib) [![Technical Debt](https://sonarqube.com/api/badges/measure?key=gregswindle-cookiemaster-android-libc%3Adevelop&metric=sqale_debt_ratio&template=FLAT)](https://coveralls.io/github/gregswindle/cookiemaster-android-lib)
 ---
 <!-- TOC depthFrom:2 depthTo:4 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -74,7 +74,7 @@ CookieMaster.clear();
 Releases ~~are~~ _will be_ published to [bintray jcenter](https://bintray.com/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib/) and
 [maven central](https://maven-badges.herokuapp.com/maven-central/com.verizon.api/cookiemaster-android-lib).
 
-[![JCenter](https://img.shields.io/bintray/v/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib.svg?label=jcenter)](https://bintray.com/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib/_latestVersion)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT)  [![JCenter](https://img.shields.io/bintray/v/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib.svg?label=jcenter)](https://bintray.com/gregswindle/cookiemaster-android-lib/cookiemaster-android-lib/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/com.verizon.api/cookiemaster-android-lib.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.verizon.api/cookiemaster-android-lib)
 
 
