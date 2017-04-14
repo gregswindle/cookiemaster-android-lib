@@ -28,18 +28,9 @@ before_install:
   - chmod +x gradlew
 
 script:
-  - ./gradlew check
-  - ./gradlew projectReport
-  - ./gradlew test
-  # Coverage
-  - mkdir -p ./build/reports/jacoco/test/
-  - ./gradlew jacocoTestReport
-  - cp -rf ./library/build/reports/jacoco/jacocoTestDebugUnitTestReport/ ./build/reports/jacoco/test/
-  # - mv ./build/reports/jacoco/test/jacocoTestDebugUnitTestReport.xml ./build/reports/jacoco/test/jacocoTestReport.xml
-  - ls -la ./library/build/reports/jacoco
-  # - ./gradlew coveralls
-  - ./gradlew build
-  - ./gradlew sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=${SONAR_ORGANIZATION} -Dsonar.login=${SONAR_TOKEN}
+  - ./gradlew check projectReport
+  - cat library/build/reports/project/dependencies.txt && cat library/build/reports/project/properties.txt && cat library/build/reports/project/tasks.txt
+  - ./gradlew build test sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=${SONAR_ORGANIZATION} -Dsonar.login=${SONAR_TOKEN}
 
 after_failure: "cat $TRAVIS_BUILD_DIR/build/outputs/lint-results-debug.xml"
 
