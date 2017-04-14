@@ -17,9 +17,15 @@ sonarqube {
         property "sonar.exclusions",     "build/**,**/*.png"
 
         property "sonar.android.lint.report", "build/reports/lint-results.xml"
-        property "sonar.junit.reportsPath",   "build/test-results/**"
-        property "sonar.jacoco.reportPath",   "build/jacoco/*.exec"
+        property "sonar.junit.reportsPath",   "build/test-results/testDebugUnitTest"
+        property "sonar.jacoco.reportPaths",   "build/jacoco/*.exec"
+// @see: https://docs.sonarqube.org/display/PLUG/GitHub+Plugin
+        property "sonar.analysis.mode", "preview"
+        property "sonar.github.oauth", System.getenv("SONAR_QA_GATEWAY")
+        property "sonar.github.repository", "gregswindle/cookiemaster-android-lib"
+        property "sonar.github.pullRequest", System.getenv("PULL_REQUEST_ID")
     }
+
 }
 
 jacocoAndroidUnitTestReport {
