@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply from: '../jacoco.gradle'
+apply from: 'jacoco.gradle'
 apply plugin: 'project-report'
 
 android {
@@ -72,4 +72,3 @@ dependencies {
 //    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 //    androidTestCompile 'org.robolectric:robolectric:3.3.2'
 }
-
