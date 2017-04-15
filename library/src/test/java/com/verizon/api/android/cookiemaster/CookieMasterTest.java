@@ -10,7 +10,7 @@ import org.junit.Test;
 public class CookieMasterTest {
     @Before
     public void setUp() throws Exception {
-
+      
     }
 
     @After

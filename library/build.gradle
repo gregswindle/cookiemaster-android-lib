@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply from: '../jacoco.gradle'
+apply from: 'jacoco.gradle'
 apply plugin: 'project-report'
 
 android {
