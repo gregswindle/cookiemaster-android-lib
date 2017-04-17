@@ -18,7 +18,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.kt3k.coveralls'
+//apply plugin: 'com.github.kt3k.coveralls'
 
 allprojects {
     repositories {
@@ -31,7 +31,7 @@ def coverageSourceDirs = [
         "$projectDir/build/reports/jacoco/jacocoTestReleaseUnitTestReport/jacocoTestReleaseUnitTestReport.xml"
 ]
 
-project.extensions.coveralls.sourceDirs += coverageSourceDirs
+//project.extensions.coveralls.sourceDirs += coverageSourceDirs
 
 task clean(type: Delete) {
     delete rootProject.buildDir

@@ -2,8 +2,7 @@ package com.verizon.api.android.cookiemaster;
 
 import android.webkit.CookieManager;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.net.HttpCookie;
 import java.util.List;
@@ -12,7 +11,11 @@ import java.util.List;
 /**
  * The type Cookie master.
  */
-public class CookieMaster {
+public final class CookieMaster {
+
+    private CookieMaster() {
+        throw new UnsupportedOperationException("CookieMaster is a static utility class, and cannot be instantiated.");
+    }
 
     /**
      * Gets cookie value.
@@ -20,28 +23,20 @@ public class CookieMaster {
      * @param url        the url
      * @param cookieName the cookie name
      * @return the cookie value
+     * @throws JsonProcessingException the json processing exception
      */
-    public static String getCookieValue(String url, String cookieName) {
+    public static String getCookieValue(String url, String cookieName) throws JsonProcessingException {
         CookieManager cookieManager = CookieManager.getInstance();
-        String[] cookies = cookieManager.getCookie(url).split("; ");
-        String cookieEntry = "";
-
-        for (String cookie : cookies) {
-            if (cookie.contains(cookieName + "=")) {
-                cookieEntry = cookie.split("=")[1].trim();
+        String cookieManagerCookie = cookieManager.getCookie(url);
+        List<HttpCookie> httpCookies = HttpCookie.parse(cookieManagerCookie);
+        String jsonHttpCookie = "";
+        for (HttpCookie cookie : httpCookies) {
+            if (cookie.getName().equals(cookieName)) {
+                jsonHttpCookie = HttpCookieJson.toJson(cookie);
                 break;
             }
         }
-
-        JSONObject json = null;
-        if (cookieEntry != "") {
-            try {
-                json = new JSONObject("{cookieValue:\"" + cookieEntry + "\"}");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return cookieEntry;
+        return jsonHttpCookie;
     }
 
     /**
@@ -52,7 +47,8 @@ public class CookieMaster {
      */
     public static void setCookieValue(String url, String cookieHeaderValue) {
         CookieManager cookieManager = CookieManager.getInstance();
-        List<HttpCookie> httpCookies = HttpCookie.parse(cookieHeaderValue);
+        cookieManager.setAcceptCookie(true);
+        cookieManager.setCookie(url, cookieHeaderValue);
     }
 
     /**
@@ -63,6 +59,8 @@ public class CookieMaster {
      * @param cookieValue the cookie value
      */
     public static void setCookieValue(String url, String cookieName, String cookieValue) {
-
+        HttpCookie httpCookie = new HttpCookie(cookieName, cookieValue);
+        String cookieHeaderValue = httpCookie.toString().replace("\"", "");
+        setCookieValue(url, cookieHeaderValue);
     }
 }

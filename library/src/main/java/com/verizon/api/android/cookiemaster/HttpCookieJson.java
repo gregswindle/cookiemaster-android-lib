@@ -1,5 +1,7 @@
 package com.verizon.api.android.cookiemaster;
 
+import android.util.Log;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,6 +15,8 @@ import java.util.List;
  * The type Http cookie json.
  */
 final class HttpCookieJson {
+
+    static final String logTag = "[cookiemaster-android]";
 
     /**
      * To json string.
@@ -35,7 +39,7 @@ final class HttpCookieJson {
         ObjectMapper mapper = new ObjectMapper();
         String jsonHttpCookieString = toJson(httpCookie);
         JsonNode httpCookieJson = mapper.readTree(jsonHttpCookieString);
-        System.out.println(jsonHttpCookieString);
+        Log.d(logTag, jsonHttpCookieString);
 
         return httpCookieJson;
     }
@@ -53,7 +57,7 @@ final class HttpCookieJson {
         for (HttpCookie httpCookie : httpCookies) {
             String jsonCookie = toJson(httpCookie);
             jsonHttpCookies.add(jsonCookie);
-            System.out.println(jsonCookie);
+            Log.d(logTag, jsonCookie);
         }
 
         return jsonHttpCookies;

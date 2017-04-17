@@ -253,3 +253,5 @@ freeline_project_description.json
 /gradle.properties
 library/libs/
 library/src/main/res/drawable/
+
+/.scannerwork
