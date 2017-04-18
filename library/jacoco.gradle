@@ -1,6 +1,8 @@
 apply plugin: "org.sonarqube"
 apply plugin: 'jacoco-android'
 apply plugin: 'jacoco'
+apply plugin: 'codenarc'
+apply plugin: 'ru.vyarus.java-lib'
 
 jacoco {
     toolVersion = "0.7.5.201505241946"

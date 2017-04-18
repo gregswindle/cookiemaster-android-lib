@@ -15,24 +15,24 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.net.HttpCookie;
 import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Log.class)
 public class HttpCookieJsonTest {
 
-    private HttpCookie httpCookie;
     private final String sessionTokenName = "SMSESSION";
     private final String sessionTokenValue = "AlB42sJq5JY73L6LVA3t";
     private final String cookieHeader = "SMSESSION=AlB42sJq5JY73L6LVA3t; path=/; domain=.verizon.com; Secure; HTTPOnly";
-
     @Rule
     public ExpectedException thrown = ExpectedException.none();
+    private HttpCookie httpCookie;
 
     @Before
     public void setUp() throws Exception {
@@ -68,9 +68,14 @@ public class HttpCookieJsonTest {
         System.out.println(httpCookieList.get(0));
     }
 
-    @Test
-    public void constructor() throws Exception {
-        HttpCookieJson httpCookieJson = new HttpCookieJson();
-        assertTrue(httpCookieJson instanceof HttpCookieJson);
+    @Test(expected = UnsupportedOperationException.class)
+    public void constructorThrowsIllegalAccessError() throws Exception {
+        final Constructor<HttpCookieJson> constructor = HttpCookieJson.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        try {
+            constructor.newInstance();
+        } catch (InvocationTargetException e) {
+            throw (UnsupportedOperationException) e.getTargetException();
+        }
     }
 }

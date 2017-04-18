@@ -16,7 +16,11 @@ import java.util.List;
  */
 final class HttpCookieJson {
 
-    static final String logTag = "[cookiemaster-android]";
+    private static final String LOG_TAG = "[cookiemaster-android]";
+
+    private HttpCookieJson() {
+        throw new UnsupportedOperationException("CookieMaster is a static utility class, and cannot be instantiated.");
+    }
 
     /**
      * To json string.
@@ -39,7 +43,7 @@ final class HttpCookieJson {
         ObjectMapper mapper = new ObjectMapper();
         String jsonHttpCookieString = toJson(httpCookie);
         JsonNode httpCookieJson = mapper.readTree(jsonHttpCookieString);
-        Log.d(logTag, jsonHttpCookieString);
+        Log.d(LOG_TAG, jsonHttpCookieString);
 
         return httpCookieJson;
     }
@@ -57,7 +61,7 @@ final class HttpCookieJson {
         for (HttpCookie httpCookie : httpCookies) {
             String jsonCookie = toJson(httpCookie);
             jsonHttpCookies.add(jsonCookie);
-            Log.d(logTag, jsonCookie);
+            Log.d(LOG_TAG, jsonCookie);
         }
 
         return jsonHttpCookies;

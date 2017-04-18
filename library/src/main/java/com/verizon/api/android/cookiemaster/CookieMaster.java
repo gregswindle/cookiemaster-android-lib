@@ -63,4 +63,14 @@ public final class CookieMaster {
         String cookieHeaderValue = httpCookie.toString().replace("\"", "");
         setCookieValue(url, cookieHeaderValue);
     }
+
+
+    /**
+     * Removes all cookies.
+     */
+    public static void clear() {
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.removeAllCookies(null);
+        cookieManager.flush();
+    }
 }

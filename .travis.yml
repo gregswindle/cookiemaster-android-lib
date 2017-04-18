@@ -22,7 +22,7 @@ addons:
     token:
       secure: "$SONAR_TOKEN"
     github_token:
-      secure: ""
+      secure: "$GITHUB_ACCESS_TOKEN"
     branches:
       - master
       - develop
@@ -33,10 +33,9 @@ before_install:
   - chmod +x .travisBuild.sh
 
 script:
-  - ./gradlew check projectReport
+  - ./gradlew check projectReport jacocoTestReport
   - cat library/build/reports/project/dependencies.txt && cat library/build/reports/project/properties.txt && cat library/build/reports/project/tasks.txt
   - ./gradlew build test sonarqube -Dsonar.organization=${SONAR_ORGANIZATION} -Dsonar.login=${SONAR_TOKEN}
-  - ./gradlew jacocoTestReport
   - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.jacoco.reportPaths=library/build/jacoco/testDebugUnitTest.exec,library/build/jacoco/testReleaseUnitTest.exec
   - ./.travisBuild.sh
 
