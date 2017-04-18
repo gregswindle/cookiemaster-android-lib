@@ -18,6 +18,10 @@ final class HttpCookieJson {
 
     private static final String LOG_TAG = "[cookiemaster-android]";
 
+    private HttpCookieJson() {
+        throw new UnsupportedOperationException("CookieMaster is a static utility class, and cannot be instantiated.");
+    }
+
     /**
      * To json string.
      *
