@@ -86,6 +86,13 @@ public class CookieMasterTest {
         verify(cookieManagerMock, times(1)).setCookie(anyString(), anyString());
     }
 
+    @Test
+    public void clearAllCookies() throws Exception {
+        CookieMaster.clear();
+        verify(cookieManagerMock, times(1)).removeAllCookies(null);
+        verify(cookieManagerMock, times(1)).flush();
+    }
+
     @Test(expected = UnsupportedOperationException.class)
     public void constructorThrowsIllegalAccessError() throws Exception {
         final Constructor<CookieMaster> constructor = CookieMaster.class.getDeclaredConstructor();

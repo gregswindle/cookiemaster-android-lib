@@ -8,7 +8,8 @@ function sonarScanOnPullRequest {
                   -Dsonar.github.oauth=$GITHUB_ACCESS_TOKEN \
                   -Dsonar.host.url=https://sonarqube.com \
                   -Dsonar.login=$SONAR_TOKEN \
-                  -Dsonar.jacoco.reportPaths=library/build/jacoco/testDebugUnitTest.exec
+                  -Dsonar.jacoco.reportPaths=library/build/jacoco/testDebugUnitTest.exec \
+                  -Dsonar.branch=`git rev-parse --abbrev-ref HEAD`
   fi
 }
 

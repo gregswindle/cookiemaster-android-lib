@@ -22,7 +22,7 @@ addons:
     token:
       secure: "$SONAR_TOKEN"
     github_token:
-      secure: ""
+      secure: "$GITHUB_ACCESS_TOKEN"
     branches:
       - master
       - develop
